@@ -26,7 +26,7 @@ def main():
         t_final_s=T_FINAL_S,
     )
 
-    plot_results(times, theta, omega)
+    plot_results(times, theta, omega, show_plots=True)
 
 
 if __name__ == "__main__":
