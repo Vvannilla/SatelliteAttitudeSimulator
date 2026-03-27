@@ -2,6 +2,7 @@
 Simulation execution loop.
 
 This module is responsible for propagating the system state over time.
+Discrete-time implementation of rotational physics using Euler integration.
 """
 
 import numpy as np
