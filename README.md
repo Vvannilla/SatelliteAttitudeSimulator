@@ -34,3 +34,8 @@ python -m src.main
 - Reaction wheel modeling
 - State estimation
 
+### Angular Position (Radians)
+![Angular Position Rad](results/angular_position_rad.png)
+
+### Angular Position (Degrees)
+![Angular Position Deg](results/angular_position_deg.png)
