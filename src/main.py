@@ -30,7 +30,7 @@ def main():
         t_final_s=T_FINAL_S,
     )
 
-    plot_results(times, theta, omega, torque_cmd, error_hist, show_plots=True)
+    plot_results(times, theta, omega, torque_cmd, error_hist, THETA_TARGET_RAD, show_plots=True)
 
 
 if __name__ == "__main__":

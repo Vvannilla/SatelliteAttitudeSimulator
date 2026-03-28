@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_results(times, theta, omega, torque_cmd, error_hist, show_plots=True):
+def plot_results(times, theta, omega, torque_cmd, error_hist, theta_target, show_plots=True):
     """
     Plot and save angular position and angular velocity versus time.
 
@@ -26,10 +26,12 @@ def plot_results(times, theta, omega, torque_cmd, error_hist, show_plots=True):
 
     # Angular position in radians
     plt.figure()
-    plt.plot(times, theta)
+    plt.plot(times, theta, label="Theta")
+    plt.axhline(y=theta_target, linestyle="--", label="Target")
     plt.title("Angular Position vs Time (Radians)")
     plt.xlabel("Time [s]")
     plt.ylabel("Theta [rad]")
+    plt.legend()
     plt.grid()
     plt.tight_layout()
     plt.savefig(results_dir / "angular_position_rad.png", dpi=300)
@@ -39,10 +41,12 @@ def plot_results(times, theta, omega, torque_cmd, error_hist, show_plots=True):
 
     # Angular position in degrees
     plt.figure()
-    plt.plot(times, theta_deg)
+    plt.plot(times, theta_deg, label="Theta")
+    plt.axhline(y=np.degrees(theta_target), linestyle="--", label="Target")
     plt.title("Angular Position vs Time (Degrees)")
     plt.xlabel("Time [s]")
     plt.ylabel("Theta [deg]")
+    plt.legend()
     plt.grid()
     plt.tight_layout()
     plt.savefig(results_dir / "angular_position_deg.png", dpi=300)

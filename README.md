@@ -54,7 +54,7 @@ Control torque vs time
 ![Angular Position Deg](results/angular_position_deg.png)
 
 ### Angular Velocity (Radians/sec)
-![Angular Velocity Rad/s](results/velocity.png)
+![Angular Velocity Rad/s](results/angular_velocity.png)
 
 ### Attitude Error
 ![Attittude Error](results/attitude_error.png)
