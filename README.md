@@ -13,32 +13,54 @@ The simulator is structured to keep configuration, dynamics, simulation flow, an
 
 ## System Overview
 
-The system models 1-axis rotational motion using:
+Simulates 1-axis rotational motion of a satellite
+Uses Euler integration
+Implements:
+    Open-loop control
+    Proportional (P) control
+    Proportional-Derivative (PD) control
 
-- Torque input
-- Moment of inertia
-- Angular velocity
-- Angular position
+## Physical Model
 
-The simulation uses Euler integration to propagate system states over time.
+The system follows:
+
+τ = Iα
+
+Where:
+
+τ = torque
+I = inertia
+α = angular acceleration
 
 ## How to Run
 
-```bash
+bash
 pip install -r requirements.txt
 python -m src.main
 
-## Next Steps
-- PID attitude control
-- 3-axis dynamics
-- Reaction wheel modeling
-- State estimation
+## Outputs
+
+The simulation generates:
+
+Angular position vs time
+Angular velocity vs time
+Attitude error vs time
+Control torque vs time
 
 ### Angular Position (Radians)
 ![Angular Position Rad](results/angular_position_rad.png)
 
 ### Angular Position (Degrees)
 ![Angular Position Deg](results/angular_position_deg.png)
+
+### Angular Velocity (Radians/sec)
+![Angular Velocity Rad/s](results/velocity.png)
+
+### Attitude Error
+![Attittude Error](results/attitude_error.png)
+
+### Control Torque
+![Control Torque](results/control_torque.png)
 
 Torque now goes from fixed to:
 τ=Kp​⋅(θtarget​−θ)
