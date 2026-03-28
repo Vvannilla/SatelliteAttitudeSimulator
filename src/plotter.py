@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_results(times, theta, omega, show_plots=True):
+def plot_results(times, theta, omega, torque_cmd, error_hist, show_plots=True):
     """
     Plot and save angular position and angular velocity versus time.
 
@@ -64,4 +64,27 @@ def plot_results(times, theta, omega, show_plots=True):
         plt.show(block=False)
         plt.pause(0.1)
 
+    # Error vs Time
+    plt.figure()
+    plt.plot(times, error_hist)
+    plt.title("Attitude Error vs Time")
+    plt.xlabel("Time [s]")
+    plt.ylabel("Error [rad]")
+    plt.grid()
+    plt.savefig(results_dir / "attitude_error.png", dpi=300)
+    if show_plots:
+        plt.show(block=False)
+
+    # Torque vs Time
+    plt.figure()
+    plt.plot(times, torque_cmd)
+    plt.title("Control Torque vs Time")
+    plt.xlabel("Time [s]")
+    plt.ylabel("Torque [Nm]")
+    plt.grid()
+    plt.savefig(results_dir / "control_torque.png", dpi=300)
+    if show_plots:
+        plt.show(block=False)
+
     plt.close("all")
+
