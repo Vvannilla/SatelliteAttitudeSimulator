@@ -39,3 +39,7 @@ python -m src.main
 
 ### Angular Position (Degrees)
 ![Angular Position Deg](results/angular_position_deg.png)
+
+Torque now goes from fixed to:
+τ=Kp​⋅(θtarget​−θ)
+Given the P control
