@@ -15,3 +15,5 @@ KD = 0.3                  # Derivative gain
 
 DT_S = 0.01               # Simulation time step [s]
 T_FINAL_S = 10.0          # Total simulation time [s]
+
+MAX_TORQUE_NM = 0.1       # Saturation max limitation from actuator

@@ -7,6 +7,7 @@ Discrete-time implementation of rotational physics using Euler integration.
 
 import numpy as np
 from src.dynamics import compute_angular_acceleration
+from src.config import MAX_TORQUE_NM
 
 
 def run_simulation(
@@ -54,6 +55,12 @@ def run_simulation(
     for k in range(1, len(times)):
         error = theta_target_rad - theta[k - 1]
         torque = kp * error - kd * omega[k - 1]
+
+        # Apply torque saturation
+        if torque > MAX_TORQUE_NM:
+            torque = MAX_TORQUE_NM
+        elif torque < -MAX_TORQUE_NM:
+            torque = -MAX_TORQUE_NM
 
         alpha = compute_angular_acceleration(torque, inertia_kgm2)
 
