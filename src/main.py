@@ -10,6 +10,7 @@ from src.config import (
     OMEGA0_RAD_S,
     THETA_TARGET_RAD,
     KP,
+    KD,
     DT_S,
     T_FINAL_S,
 )
@@ -22,6 +23,7 @@ def main():
         inertia_kgm2=INERTIA_KGM2,
         theta_target_rad=THETA_TARGET_RAD,
         kp=KP,
+        kd=KD,
         theta0_rad=THETA0_RAD,
         omega0_rad_s=OMEGA0_RAD_S,
         dt_s=DT_S,
