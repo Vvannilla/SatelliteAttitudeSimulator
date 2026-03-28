@@ -13,6 +13,7 @@ def run_simulation(
     inertia_kgm2: float,
     theta_target_rad: float,
     kp: float,
+    kd: float,
     theta0_rad: float,
     omega0_rad_s: float,
     dt_s: float,
@@ -46,12 +47,13 @@ def run_simulation(
     
     theta[0] = theta0_rad
     omega[0] = omega0_rad_s
-    error_hist[0] = theta_target_rad - theta0_rad
-    torque_cmd[0] = kp * error_hist[0]
+    
+    error_hist[0] = theta_target_rad - theta[0]
+    torque_cmd[0] = kp * error_hist[0] - kd * omega[0]
 
     for k in range(1, len(times)):
         error = theta_target_rad - theta[k - 1]
-        torque = kp * error
+        torque = kp * error - kd * omega[k - 1]
 
         alpha = compute_angular_acceleration(torque, inertia_kgm2)
 
